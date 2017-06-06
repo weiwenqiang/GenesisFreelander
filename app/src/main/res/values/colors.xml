@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 系统使用 -->
+    <color name="colorPrimary">#34253A</color>
+    <color name="colorPrimaryDark">#45364b</color>
+    <color name="colorAccent">#FF4081</color>
+    <!-- 纯色 -->
+    <color name="white">#ffffffff</color>
+    <color name="black">#ff000000</color>
+    <!-- 自定义颜色 -->
+    <color name="blue">#ff14B9C7</color>
+    <color name="purple">#34253A</color>
+</resources>

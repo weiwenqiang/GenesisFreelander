@@ -1,0 +1,1 @@
+include ':app', ':XUtils', ':BGARefresh', ':Calendar', ':DialogUI', ':PagerIndicator', ':SweetAlert'

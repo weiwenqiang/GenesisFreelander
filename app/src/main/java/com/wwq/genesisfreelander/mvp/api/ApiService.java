@@ -21,18 +21,164 @@ public interface ApiService {
      */
     String BASE_URL = "http://192.168.0.241:8080/";//124.165.205.15//211.159.158.126
 
-//    /**
-//     *  以下为接口地址
-//     * ---------------------------------------- 强大分割线 ----------------------------------------
-//     */
-//
+    /**
+     *  以下为接口地址
+     * ---------------------------------------- 强大分割线 ----------------------------------------
+     */
     /**
      * 登录
      */
-    @GET("app/shopping/login")
-    Observable<LoginEntity> ShoppingLogin(@Query("phoneNumber") String phoneNumber,
-                                          @Query("password") String password);
-//    public static final String SHOPPING_LOGIN = SERVER_URL + "/app/shopping/login";
+    @POST("app/guard/login")
+    Observable<LoginEntity> Login(@Query("phone") String phone,
+                                  @Query("password") String password);
+
+    /**
+     * 查看该闪递人是否已经注册
+     */
+    @POST("app/guard/selectGuard")
+    Observable<String> SelectGuard(@Query("phoneNumber") String phoneNumber);
+
+    /**
+     * 注册--实名认证
+     */
+    @Multipart
+    @POST("app/guard/register/info")
+    Observable<String> RegisterInfo(@Part("token") RequestBody token,
+                                    @Part("realName") RequestBody realName,
+                                    @Part("idCard") RequestBody idCard,
+                                    @Part("carNumber") RequestBody carNumber,
+                                    @Part MultipartBody.Part idCardFrontFile,
+                                    @Part MultipartBody.Part idCardBackFile,
+                                    @Part MultipartBody.Part drivingLicenseFile,
+                                    @Part MultipartBody.Part vehicleTravelLicenseFile,
+                                    @Part MultipartBody.Part carImageFile);
+
+    /**
+     * 注册
+     */
+    @POST("app/guard/register")
+    Observable<String> Register(@Query("phone") String phone,
+                                @Query("password") String password);
+
+    /**
+     * 修改密码
+     */
+    @GET("app/guard/changePassword")
+    Observable<String> ChangePassword(@Query("token") String token,
+                                      @Query("oldPassword") String oldPassword,
+                                      @Query("newPassword") String newPassword);
+
+    /**
+     * 忘记密码后的修改
+     */
+    @GET("app/guard/user/forgetPwd")
+    Observable<String> ForgetPwd(@Query("token") String token,
+                                 @Query("newPassword") String newPassword);
+
+    /**
+     * 闪递人订单列表（5类）
+     */
+    @GET("app/guard/order/allOrder")
+    Observable<String> AllOrder(@Query("token") String token,
+                                @Query("type") int type,
+                                @Query("rum") int rum);
+
+    /**
+     * 点击订单按钮
+     */
+    @GET("app/guard/order/receiveOrder")
+    Observable<String> ReceiveOrder(@Query("token") String token,
+                                    @Query("orderNo") String orderNo,
+                                    @Query("type") int type);
+
+    /**
+     * 查询订单列表
+     */
+    @GET("app/guard/selorder/selAllOrder")
+    Observable<String> SelAllOrder(@Query("token") String token,
+                                   @Query("type") int type,
+                                   @Query("date") String date,
+                                   @Query("rum") int rum);
+
+    /**
+     * 更新跑腿人地理位置
+     */
+    @POST("app/guard/coordinate/update")
+    Observable<String> Update(@Query("token") String token,
+                              @Query("latitude") String latitude,
+                              @Query("longitude") String longitude);
+
+    /**
+     * 闪递人设置工作状态
+     */
+    @GET("app/guard/workStatus/isRest")
+    Observable<String> IsRest(@Query("token") String token,
+                              @Query("state") String state);
+
+    /**
+     * 抢单
+     */
+    @GET("app/guard/order/robOrder")
+    Observable<String> RobOrder(@Query("token") String token,
+                                @Query("orderType") int orderType,
+                                @Query("orderNo") int orderNo);
+
+    /**
+     * 闪递人今日销量及金额
+     */
+    @GET("app/guard/guardSale")
+    Observable<String> GuardSale(@Query("token") String token);
+
+    /**
+     * 闪递人反馈意见
+     */
+    @POST("app/guard/addComplain")
+    Observable<String> AddComplain(@Query("token") String token,
+                                   @Query("talkContent") String talkContent);
+
+    /**
+     * 闪递人交易明细
+     */
+    @POST("app/people/select")
+    Observable<String> Select(@Query("token") String token,
+                              @Query("pageSize") String pageSize);
+
+    /**
+     * 闪递人一段时间的交易总单数（比如一天一月）
+     */
+    @POST("app/people/selectDayNumber")
+    Observable<String> SeleselectDayNumberct(@Query("token") String token,
+                                             @Query("finishTime") String finishTime);
+
+    /**
+     * 闪递人一段时间的交易总收益（比如一天一月）
+     */
+    @POST("app/people/totalRevenue")
+    Observable<String> TotalRevenue(@Query("token") String token,
+                                    @Query("finishTime") String finishTime);
+
+    /**
+     * 闪递人端查看未回复已回复评论
+     */
+    @POST("app/guard/order/orderNotEvaluated")
+    Observable<String> OrderNotEvaluated(@Query("token") String token,
+                                         @Query("talk") int talk,
+                                         @Query("page") int page);
+
+    /**
+     * 闪递人回复用户评论
+     */
+    @GET("app/guard/order/reply")
+    Observable<String> Reply(@Query("token") String token,
+                             @Query("id") long id,
+                             @Query("replyContent") String replyContent);
+
+    /**
+     * 获取闪递人当天，当月各类数据
+     */
+    @POST("app/people/queryInComeDetails")
+    Observable<String> QueryInComeDetails(@Query("token") String token);
+
     /**
      * 极光 绑定 registrationId
      */
@@ -41,245 +187,4 @@ public interface ApiService {
                                            @Query("type") int type,
                                            @Query("status") int status,
                                            @Query("token") String token);
-//    /**
-//     * 修改密码
-//     */
-//    public static final String USER_UPDATEPWD = SERVER_URL + "/app/shopping/user/updatePwd";
-//    /**
-//     * 忘记密码
-//     */
-//    public static final String USER_FORGETPWD = SERVER_URL + "/app/shopping/user/forgetPwd";
-//
-//    /**
-//     * 菜单列表
-//     */
-//    @POST("app/shopping/menus")
-//    Observable<CommodityEntity> ShoppingMenus(@Query("token") String token);
-//
-//    public static final String SHOPPING_MENUS = SERVER_URL + "/app/shopping/menus";
-//
-//    /**
-//     * 添加菜单
-//     */
-//    @POST("app/shopping/menus/addMenus")
-//    Observable<RequestErrorEntity> AddMenus(@Query("token") String token,
-//                                            @Query("name") String name);
-//
-//    public static final String MENUS_ADDMENUS = SERVER_URL + "/app/shopping/menus/addMenus";
-//
-//    /**
-//     * 删除菜单
-//     */
-//    @POST("app/shopping/menus/delMenu")
-//    Observable<RequestErrorEntity> DelMenu(@Query("token") String token,
-//                                           @Query("menuId") String menuId);
-//
-//    public static final String MENUS_DELMENU = SERVER_URL + "/app/shopping/menus/delMenu";
-//
-//    /**
-//     * 修改菜单
-//     */
-//    @POST("app/shopping/menus/update")
-//    Observable<RequestErrorEntity> UpdateMenus(@Query("token") String token,
-//                                               @Query("id") String id,
-//                                               @Query("name") String name);
-//
-//    public static final String MENUS_UPDATE = SERVER_URL + "/app/shopping/menus/update";
-//
-//    /**
-//     * 添加商品
-//     */
-//    @Multipart
-//    @POST("app/shopping/product/addProduct")
-//    Observable<RequestErrorEntity> AddProduct(@Part("token") RequestBody token,
-//                                              @Part("proName") RequestBody proName,
-//                                              @Part("inventory") RequestBody inventory,
-//                                              @Part("mealBoxNum") RequestBody mealBoxNum,
-//                                              @Part("mealBoxPrice") RequestBody mealBoxPrice,
-//                                              @Part("proMenuId") RequestBody proMenuId,
-//                                              @Part("proDes") RequestBody proDes,
-//                                              @Part MultipartBody.Part multipartFile,
-//                                              @Part("feature") RequestBody feature,
-//                                              @Part("picOperType") RequestBody picOperType,
-//                                              @Part("json") RequestBody json);
-//
-//    public static final String PRODUCT_ADDPRODUCT = SERVER_URL + "/app/shopping/product/addProduct";
-//
-//    /**
-//     * 删除商品(不可恢复)
-//     */
-//    @POST("app/shopping/product/delProduct")
-//    Observable<RequestErrorEntity> DelProduct(@Query("token") String token,
-//                                              @Query("id") String id);
-//
-//    public static final String PRODUCT_DELPRODUCT = SERVER_URL + "/app/shopping/product/delProduct";
-//
-//    /**
-//     * 编辑商品信息
-//     */
-//    @Multipart
-//    @POST("app/shopping/product/addProduct")
-//    Observable<RequestErrorEntity> UpdateProduct(@Part("token") RequestBody token,
-//                                                 @Part("id") RequestBody id,
-//                                                 @Part("proName") RequestBody proName,
-//                                                 @Part("inventory") RequestBody inventory,
-//                                                 @Part("mealBoxNum") RequestBody mealBoxNum,
-//                                                 @Part("mealBoxPrice") RequestBody mealBoxPrice,
-//                                                 @Part("proMenuId") RequestBody proMenuId,
-//                                                 @Part("proDes") RequestBody proDes,
-//                                                 @Part MultipartBody.Part multipartFile,
-//                                                 @Part("feature") RequestBody feature,
-//                                                 @Part("picOperType") RequestBody picOperType,
-//                                                 @Part("json") RequestBody json);
-//
-//    public static final String PRODUCT_UPDATEPRODUCT = SERVER_URL + "/app/shopping/product/updateProduct";
-//
-//    /**
-//     * 商家上架商品
-//     */
-//    @POST("app/shopping/product/onProduct")
-//    Observable<RequestErrorEntity> OnProduct(@Query("token") String token,
-//                                             @Query("id") String id);
-//
-//    public static final String PRODUCT_ONPRODUCT = SERVER_URL + "/app/shopping/product/onProduct";
-//
-//    /**
-//     * 查看下架商品
-//     */
-//    @POST("app/shopping/product/downProduct")
-//    Observable<CommodityEntity> DownProduct(@Query("token") String token);
-//
-//    public static final String PRODUCT_DOWNPRODUCT = SERVER_URL + "/app/shopping/product/downProduct";
-//
-//    /**
-//     * 商家删除商品（下架）
-//     */
-//    @POST("app/shopping/product/proDelete")
-//    Observable<RequestErrorEntity> ProProduct(@Query("token") String token,
-//                                              @Query("id") String id);
-//
-//    public static final String PRODUCT_PRODELETE = SERVER_URL + "/app/shopping/product/proDelete";
-//    /**
-//     * 订单管理-待接单列表
-//     */
-//    public static final String ORDER_WAITINGORDER = SERVER_URL + "/app/shopping/order/waitingOrder";
-//    /**
-//     * 活动列表
-//     */
-//    public static final String SHOPACTIVITY_LOOKSHOPACTIVITY = SERVER_URL + "/app/shopping/shopactivity/lookShopActivity";
-//
-//    /**
-//     * 商家更新自己的营业时间
-//     */
-//    @POST("app/shopping/shop/businessTime")
-//    Observable<RequestErrorEntity> BusinessTime(@Query("token") String token,
-//                                                @Query("week") String week,
-//                                                @Query("startTime") String startTime,
-//                                                @Query("endTime") String endTime);
-//
-//    public static final String SHOP_BUSINESSTIME = SERVER_URL + "/app/shopping/shop/businessTime";
-//    /**
-//     * 商家设置营业状态
-//     */
-//    public static final String USER_ISBUSINESS = SERVER_URL + "/app/shopping/user/isBusiness";
-//    /**
-//     * 操作活动
-//     */
-//    public static final String SHOPACTIVITY_OPERATESHOPACTIVITY = SERVER_URL + "/app/shopping/shopactivity/operateShopActivity";
-//    /**
-//     * 接单退单接口
-//     */
-//    public static final String ORDER_RECEIVEORDER = SERVER_URL + "/app/shopping/order/receiveOrder";
-//    /**
-//     * 回复催单
-//     */
-//    public static final String ORDER_REPLAYREMINDER = SERVER_URL + "/app/shopping/order/replayReminder";
-//    /**
-//     * 订单管理列表
-//     */
-//    public static final String ORDERMANAGE_ORDERMANAGELIST = SERVER_URL + "/app/shopping/ordermanage/orderManageList";
-//    /**
-//     * 判断用户是否存在
-//     */
-//    /**
-//     * 获取商品属性
-//     */
-//    @POST("app/shopping/product/getProperty")
-//    Observable<CommodityGetPropertyEntity> GetProperty(@Query("token") String token);
-//
-//    /**
-//     * 添加商品属性
-//     */
-//    @POST("app/shopping/product/addProperty")
-//    Observable<RequestErrorEntity> AddProperty(@Query("token") String token,
-//                                               @Query("proName") String proName);
-//
-//    /**
-//     * 查看商家未回复评价和已回复评价
-//     */
-//    @GET("app/shopping/user/findUser")
-//    Observable<FindTalkEntity> isFindUser(@Query("phoneNumber") String phoneNumber);
-//
-//    /**
-//     * 查看评论
-//     */
-//    public static final String ORDERTALK_LOOKORDERTALK = SERVER_URL + "/app/shoppping/ordertalk/lookOrderTalk";
-//    /**
-//     * 回复评论
-//     */
-//    public static final String ORDERTALK_REPLAYORDERTALK = SERVER_URL + "/app/shoppping/ordertalk/replayOrderTalk";
-//
-//    /**
-//     * 今日销售量
-//     */
-//    @GET("app/shopping/shop/shopSale")
-//    Observable<StoresRunEntity> ShopShopsale(@Query("token") String token);
-//
-//    public static final String SHOP_SHOPSALE = SERVER_URL + "/app/shopping/shop/shopSale";
-//
-//    /**
-//     * 商家更新公告
-//     */
-//    public static final String SHOP_UPDATESHOPDESC = SERVER_URL + "/app/shopping/shop/updateShopDesc";
-//    /**
-//     * 商家反馈意见
-//     */
-//    public static final String USER_ADDCOMPLAIN = SERVER_URL + "/app/shopping/user/addComplain";
-//
-//    /**
-//     * 检查新版本，App升级
-//     */
-//    @POST("application/flashgordon/update.json")
-//    Observable<CheckUpgradeApkEntity> getAppUpdate();
-//
-//    /**
-//     * 查看商家未回复评价和已回复评价
-//     */
-//    @GET("app/shopping/talk/findTalk")
-//    Observable<FindTalkEntity> getFindTalk(@Query("token") String token,
-//                                           @Query("type") int type,
-//                                           @Query("start") int start);
-//
-//    /**
-//     * 添加商家回复内容
-//     */
-//    @POST("app/shopping/talk/shopReply")
-//    Observable<String> getShopReply(@Query("id") long id,
-//                                    @Query("replyContent") String replyContent,
-//                                    @Query("orderId") String orderId);
-//
-//    /**
-//     * 查看商家的评价统计内容
-//     */
-//    @GET("app/shopping/talk/talkSummary")
-//    Observable<TalkSummaryEntity> getTalkSummary(@Query("token") String token);
-//
-//    /**
-//     * 查看商家的评价统计内容
-//     */
-//    @GET("app/details/detailsshop")
-//    Observable<DetailsShopEntity> getDetailsShop(@Query("token") String token,
-//                                                 @Query("page") String page);
-//
-
 }

@@ -17,7 +17,7 @@ public class SignInModel implements SignInContract.Model {
     @Override
     public Observable<LoginEntity> ShoppingLogin(String phoneNumber, String password) {
         return ApiEngine.getInstance().getApiService()
-                .ShoppingLogin(phoneNumber,password)
+                .Login(phoneNumber,password)
                 .compose(RxSchedulers.<LoginEntity>switchThread());
     }
 

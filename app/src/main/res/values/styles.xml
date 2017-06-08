@@ -80,4 +80,22 @@
         <item name="fadeDelay">1000</item>
     </style>
 
+    <style name="starGrade" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/star_grade</item>
+        <item name="android:minHeight">16dp</item>
+        <item name="android:maxHeight">16dp</item>
+    </style>
+
+    <style name="mdyy_group_item">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:background">@drawable/lyt_blue_white_selecter</item>
+    </style>
+
 </resources>

@@ -6,7 +6,7 @@ import android.os.Build;
 import android.text.SpannableString;
 
 /**
- * Helper for setting actionbar title with custom typeface via SpannableString.
+ * Helper for setting_setting actionbar title with custom typeface via SpannableString.
  * Contains LGE 4.1 bug workaround
  *
  * @author Jakub Skierbiszewski

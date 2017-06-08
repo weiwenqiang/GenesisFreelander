@@ -9,5 +9,6 @@
     <color name="black">#ff000000</color>
     <!-- 自定义颜色 -->
     <color name="blue">#ff14B9C7</color>
-    <color name="purple">#34253A</color>
+    <color name="purple">#ff34253A</color>
+    <color name="yellow">#ffF5A623</color>
 </resources>

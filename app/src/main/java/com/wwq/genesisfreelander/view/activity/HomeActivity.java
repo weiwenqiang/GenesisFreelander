@@ -1,5 +1,6 @@
 package com.wwq.genesisfreelander.view.activity;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.widget.CompoundButton;
@@ -72,6 +73,6 @@ public class HomeActivity extends BaseActivity<HomePresenter> implements HomeCon
 
     @OnClick(R.id.img_user_round)
     public void onViewClicked() {
-
+        startActivity(new Intent(HomeActivity.this, SettingActivity.class));
     }
 }

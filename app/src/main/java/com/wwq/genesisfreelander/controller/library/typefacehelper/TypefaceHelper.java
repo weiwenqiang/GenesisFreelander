@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 /**
- * Helper class for setting custom typefaces to {@link View} and
+ * Helper class for setting_setting custom typefaces to {@link View} and
  * {@link ViewGroup}. Supports String styling using {@link SpannableString}
  *
  * Applies typeface to all child views recursively.

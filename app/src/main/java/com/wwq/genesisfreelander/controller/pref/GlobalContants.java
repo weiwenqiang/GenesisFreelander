@@ -1,5 +1,10 @@
 package com.wwq.genesisfreelander.controller.pref;
 
+import android.content.Intent;
+
+import com.wwq.genesisfreelander.view.activity.VesselActivity;
+import com.wwq.genesisfreelander.view.base.BaseActivity;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
@@ -30,4 +35,10 @@ public class GlobalContants {
     public static final DateFormat DATEYYYYMMDD = new SimpleDateFormat("yyyy-MM-dd");
     public static final DateFormat DATEMMDD = new SimpleDateFormat("MM-dd");
     public static final DateFormat DATEHHMM = new SimpleDateFormat("hh:mm");
+
+    public static void startVesselActivity(BaseActivity mActivity, String fragmentString) {
+        Intent intent = new Intent(mActivity, VesselActivity.class);
+        intent.putExtra("fragment", fragmentString);
+        mActivity.startActivity(intent);
+    }
 }

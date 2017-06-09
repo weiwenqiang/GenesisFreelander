@@ -11,4 +11,6 @@
     <color name="blue">#ff14B9C7</color>
     <color name="purple">#ff34253A</color>
     <color name="yellow">#ffF5A623</color>
+    <!-- 功能性颜色 -->
+    <color name="grayline">#CDCDCD</color>
 </resources>

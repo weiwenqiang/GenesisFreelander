@@ -1,6 +1,5 @@
 package com.wwq.genesisfreelander.view.activity;
 
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.RatingBar;
@@ -14,7 +13,6 @@ import com.wwq.genesisfreelander.view.base.BaseActivity;
 import com.wwq.genesisfreelander.view.widget.custom.SelectableRoundedImageView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -68,8 +66,10 @@ public class SettingActivity extends BaseActivity<SettingPresenter> implements S
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.lyt_day_earnings:
+                GlobalContants.startVesselActivity(SettingActivity.this, "SetDealDetailsFragment");
                 break;
             case R.id.lyt_month_earnings:
+                GlobalContants.startVesselActivity(SettingActivity.this, "SetDealDetailsFragment");
                 break;
             case R.id.lty_set_wallet:
                 GlobalContants.startVesselActivity(SettingActivity.this, "SetWalletFragment");

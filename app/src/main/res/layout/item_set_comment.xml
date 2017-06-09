@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="5dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txt_yhpj_user_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="伊利丹怒风"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txt_yhpj_create_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="01-07" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.AppCompatRatingBar
+            android:id="@+id/rtb_grade"
+            style="@style/roomRatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:rating="5.0" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/txt_yhpj_end_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="16:30送达"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/lyt_merchant_grade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></FrameLayout>
+
+    <TextView
+        android:id="@+id/txt_yhpj_user_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="送的慢不说，实物严重不符合，我要的是蛋包饭，这是什么，米饭上放了一个蛋？"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/txt_yhpj_merchant_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="商家回复：我们店就是这样。"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/img_yhpj_image"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_launcher" />
+
+
+    <LinearLayout
+        android:id="@+id/lyt_yhpj_reply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/edt_yhpj_reply_centent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="请输入回复内容"
+            android:textColor="@color/black"
+            android:lines="2"
+            android:background="@drawable/btn_normal"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_yhpj_reply"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:background="@drawable/btn_blue_white_bg"
+            android:text="回复"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/white_blue_color" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="订单详情 "
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/img_order_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_action_more"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_order_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="日式蛋包饭+鸡腿"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+</LinearLayout>

@@ -1,5 +1,7 @@
 package com.wwq.genesisfreelander.mvp.api;
 
+import com.wwq.genesisfreelander.model.json.CheckUpgradeApkEntity;
+import com.wwq.genesisfreelander.model.json.FindTalkEntity;
 import com.wwq.genesisfreelander.model.json.LoginEntity;
 
 import okhttp3.MultipartBody;
@@ -161,9 +163,9 @@ public interface ApiService {
      * 闪递人端查看未回复已回复评论
      */
     @POST("app/guard/order/orderNotEvaluated")
-    Observable<String> OrderNotEvaluated(@Query("token") String token,
-                                         @Query("talk") int talk,
-                                         @Query("page") int page);
+    Observable<FindTalkEntity> OrderNotEvaluated(@Query("token") String token,
+                                                 @Query("talk") int talk,
+                                                 @Query("page") int page);
 
     /**
      * 闪递人回复用户评论
@@ -187,4 +189,10 @@ public interface ApiService {
                                            @Query("type") int type,
                                            @Query("status") int status,
                                            @Query("token") String token);
+
+    /**
+     * 检查新版本，App升级
+     */
+    @POST("application/flashgordon/update.json")
+    Observable<CheckUpgradeApkEntity> getAppUpdate();
 }

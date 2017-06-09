@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout style="@style/me_item_style">
+
+        <TextView
+            style="@style/me_text_style"
+            android:text="意见反馈" />
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/edt_idea_fkyj"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffdddddd"
+        android:layout_margin="20dp"
+        android:gravity="left|top"
+        android:hint="\n        请写下您的宝贵意见"
+        android:inputType="textMultiLine"
+        android:minLines="6" />
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/btn_blue_white_bg"
+        android:text="反馈"
+        android:textColor="@color/white_blue_color" />
+
+</LinearLayout>

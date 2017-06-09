@@ -1,6 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/lyt_set_pass_alter"
+                style="@style/me_item_style">
+
+                <TextView
+                    style="@style/me_text_style"
+                    android:text="密码修改" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_action_more" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/grayline" />
+
+            <LinearLayout
+                android:id="@+id/lyt_set_idea_feedback"
+                style="@style/me_item_style">
+
+                <TextView
+                    style="@style/me_text_style"
+                    android:text="意见反馈" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_action_more" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grayline" />
+
+
+            <LinearLayout
+                android:id="@+id/lyt_set_news_inform"
+                style="@style/me_item_style">
+
+                <TextView
+                    style="@style/me_text_style"
+                    android:text="新消息通知" />
+
+                <com.wwq.genesisfreelander.view.widget.custom.SwitchButton
+                    android:id="@+id/swb_tint_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    app:kswTintColor="@color/blue" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grayline" />
+
+            <LinearLayout
+                android:id="@+id/lyt_set_clear_cache"
+                style="@style/me_item_style">
+
+                <TextView
+                    style="@style/me_text_style"
+                    android:text="清除缓存" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_action_more" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/grayline" />
+
+
+            <LinearLayout
+                android:id="@+id/lyt_set_regard_we"
+                style="@style/me_item_style">
+
+                <TextView
+                    style="@style/me_text_style"
+                    android:text="关于我们" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_action_more" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grayline" />
+
+
+            <LinearLayout
+                android:id="@+id/lyt_set_inspect_version"
+                style="@style/me_item_style">
+
+                <TextView
+                    style="@style/me_text_style"
+                    android:text="检查新版本" />
+
+                <TextView
+                    android:id="@+id/txt_set_new_versions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_blue_fillet"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="2dp"
+                    android:text="当前已是最新版本"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:visibility="invisible" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grayline" />
+
+            <LinearLayout
+                android:id="@+id/lyt_set_share"
+                style="@style/me_item_style">
+
+                <TextView
+                    style="@style/me_text_style"
+                    android:text="分享" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_action_more" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/grayline" />
+
+            <Button
+                android:id="@+id/lyt_set_quit_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/lyt_blue_white_selecter"
+                android:padding="20dp"
+                android:text="退出登录"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

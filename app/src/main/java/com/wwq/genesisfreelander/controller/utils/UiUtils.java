@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.wwq.genesisfreelander.R;
 import com.wwq.genesisfreelander.view.base.BaseApplication;
+import com.wwq.genesisfreelander.view.widget.layout.Flowlayout;
 
 import java.util.List;
 import java.util.Random;
@@ -103,33 +104,71 @@ public class UiUtils {
         return statusBarHeight;
     }
 
-//    public static ScrollView getStreamLayout(List<String> data){
-//        ScrollView scrollView = new ScrollView(UiUtils.getContext());
-//        scrollView.setBackgroundResource(R.drawable.grid_item_bg_normal);
-//        Flowlayout layout = new Flowlayout(BaseApplication.getApplication());
+    public static ScrollView getStreamLayout(List<String> data){
+        ScrollView scrollView = new ScrollView(UiUtils.getContext());
+        scrollView.setBackgroundResource(R.drawable.grid_item_bg_normal);
+        Flowlayout layout = new Flowlayout(BaseApplication.getApplication());
+        int padding = UiUtils.dip2px(13);
+        layout.setPadding(padding, padding, padding, padding);
+        //layout.setOrientation(LinearLayout.VERTICAL);// 设置线性布局的方向
+        int backColor = 0xffcecece;
+        Drawable pressedDrawable = DrawableUtil.createShape(backColor);// 按下显示的图片
+        for (int i = 0; i < data.size(); i++) {
+            TextView textView = new TextView(UiUtils.getContext());
+            final String str = data.get(i);
+            textView.setText(str);
+
+            Random random = new Random();   //创建随机
+            int red = random.nextInt(200) + 22;
+            int green = random.nextInt(200) + 22;
+            int blue = random.nextInt(200) + 22;
+            int color = Color.rgb(red, green, blue);//范围 0-255
+            GradientDrawable createShape = DrawableUtil.createShape(color); // 默认显示的图片
+            StateListDrawable createSelectorDrawable = DrawableUtil.createSelectorDrawable(pressedDrawable, createShape);// 创建状态选择器
+            textView.setBackgroundDrawable(createSelectorDrawable);
+            textView.setTextColor(Color.WHITE);
+            //textView.setTextSize(UiUtils.dip2px(14));
+            int textPaddingV = UiUtils.dip2px(4);
+            int textPaddingH = UiUtils.dip2px(7);
+            textView.setPadding(textPaddingH, textPaddingV, textPaddingH, textPaddingV); //设置padding
+            textView.setClickable(true);//设置textView可以被点击
+            textView.setOnClickListener(new View.OnClickListener() {  // 设置点击事件
+
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(UiUtils.getContext(), str, Toast.LENGTH_SHORT).show();
+                }
+            });
+            layout.addView(textView, new LinearLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, -2));// -2 包裹内容
+        }
+        scrollView.addView(layout);
+        return scrollView;
+    }
+
+    public static ScrollView getEllipseStreamLayout(List<String> data){
+        ScrollView scrollView = new ScrollView(UiUtils.getContext());
+        scrollView.setBackgroundResource(R.drawable.grid_item_bg_normal);
+        Flowlayout layout = new Flowlayout(BaseApplication.getApplication());
 //        int padding = UiUtils.dip2px(13);
-//        layout.setPadding(padding, padding, padding, padding);
-//        //layout.setOrientation(LinearLayout.VERTICAL);// 设置线性布局的方向
-//        int backColor = 0xffcecece;
-//        Drawable pressedDrawable = DrawableUtil.createShape(backColor);// 按下显示的图片
-//        for (int i = 0; i < data.size(); i++) {
-//            TextView textView = new TextView(UiUtils.getContext());
-//            final String str = data.get(i);
-//            textView.setText(str);
-//
-//            Random random = new Random();   //创建随机
-//            int red = random.nextInt(200) + 22;
-//            int green = random.nextInt(200) + 22;
-//            int blue = random.nextInt(200) + 22;
-//            int color = Color.rgb(red, green, blue);//范围 0-255
-//            GradientDrawable createShape = DrawableUtil.createShape(color); // 默认显示的图片
-//            StateListDrawable createSelectorDrawable = DrawableUtil.createSelectorDrawable(pressedDrawable, createShape);// 创建状态选择器
+        layout.setPadding(0, 5, 0, 5);
+        //layout.setOrientation(LinearLayout.VERTICAL);// 设置线性布局的方向
+        int backColor = 0xffcecece;
+        Drawable pressedDrawable = DrawableUtil.createShape(backColor);// 按下显示的图片
+        for (int i = 0; i < data.size(); i++) {
+            TextView textView = new TextView(UiUtils.getContext());
+            final String str = data.get(i);
+            textView.setText(str);
+
+            int color = Color.rgb(246, 96, 31);//范围 0-255
+            GradientDrawable createShape = DrawableUtil.createShape(color); // 默认显示的图片
+            StateListDrawable createSelectorDrawable = DrawableUtil.createSelectorDrawable(pressedDrawable, createShape);// 创建状态选择器
 //            textView.setBackgroundDrawable(createSelectorDrawable);
-//            textView.setTextColor(Color.WHITE);
-//            //textView.setTextSize(UiUtils.dip2px(14));
-//            int textPaddingV = UiUtils.dip2px(4);
-//            int textPaddingH = UiUtils.dip2px(7);
-//            textView.setPadding(textPaddingH, textPaddingV, textPaddingH, textPaddingV); //设置padding
+            textView.setBackgroundResource(R.drawable.ic_action_ellipse);
+            textView.setTextColor(color);
+            textView.setTextSize(UiUtils.dip2px(7));
+            int textPaddingV = UiUtils.dip2px(2);
+            int textPaddingH = UiUtils.dip2px(5);
+            textView.setPadding(textPaddingH, textPaddingV, textPaddingH, textPaddingV); //设置padding
 //            textView.setClickable(true);//设置textView可以被点击
 //            textView.setOnClickListener(new View.OnClickListener() {  // 设置点击事件
 //
@@ -138,47 +177,9 @@ public class UiUtils {
 //                    Toast.makeText(UiUtils.getContext(), str, Toast.LENGTH_SHORT).show();
 //                }
 //            });
-//            layout.addView(textView, new LinearLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, -2));// -2 包裹内容
-//        }
-//        scrollView.addView(layout);
-//        return scrollView;
-//    }
-//
-//    public static ScrollView getEllipseStreamLayout(List<String> data){
-//        ScrollView scrollView = new ScrollView(UiUtils.getContext());
-//        scrollView.setBackgroundResource(R.drawable.grid_item_bg_normal);
-//        Flowlayout layout = new Flowlayout(BaseApplication.getApplication());
-////        int padding = UiUtils.dip2px(13);
-//        layout.setPadding(0, 5, 0, 5);
-//        //layout.setOrientation(LinearLayout.VERTICAL);// 设置线性布局的方向
-//        int backColor = 0xffcecece;
-//        Drawable pressedDrawable = DrawableUtil.createShape(backColor);// 按下显示的图片
-//        for (int i = 0; i < data.size(); i++) {
-//            TextView textView = new TextView(UiUtils.getContext());
-//            final String str = data.get(i);
-//            textView.setText(str);
-//
-//            int color = Color.rgb(246, 96, 31);//范围 0-255
-//            GradientDrawable createShape = DrawableUtil.createShape(color); // 默认显示的图片
-//            StateListDrawable createSelectorDrawable = DrawableUtil.createSelectorDrawable(pressedDrawable, createShape);// 创建状态选择器
-////            textView.setBackgroundDrawable(createSelectorDrawable);
-//            textView.setBackgroundResource(R.drawable.ic_action_ellipse);
-//            textView.setTextColor(color);
-//            textView.setTextSize(UiUtils.dip2px(7));
-//            int textPaddingV = UiUtils.dip2px(2);
-//            int textPaddingH = UiUtils.dip2px(5);
-//            textView.setPadding(textPaddingH, textPaddingV, textPaddingH, textPaddingV); //设置padding
-////            textView.setClickable(true);//设置textView可以被点击
-////            textView.setOnClickListener(new View.OnClickListener() {  // 设置点击事件
-////
-////                @Override
-////                public void onClick(View v) {
-////                    Toast.makeText(UiUtils.getContext(), str, Toast.LENGTH_SHORT).show();
-////                }
-////            });
-//            layout.addView(textView, new LinearLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, -2));// -2 包裹内容
-//        }
-//        scrollView.addView(layout);
-//        return scrollView;
-//    }
+            layout.addView(textView, new LinearLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, -2));// -2 包裹内容
+        }
+        scrollView.addView(layout);
+        return scrollView;
+    }
 }

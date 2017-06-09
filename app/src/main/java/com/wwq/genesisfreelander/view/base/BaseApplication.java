@@ -25,6 +25,7 @@ import java.util.ListIterator;
 
 import cn.jpush.android.api.JPushInterface;
 import cn.jpush.sms.SMSSDK;
+import cn.sharesdk.framework.ShareSDK;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 /**
@@ -62,6 +63,8 @@ public class BaseApplication extends Application {
         //发短信初始化
         SMSSDK.getInstance().initSdk(this);
         SMSSDK.getInstance().setIntervalTime(60000);
+        //分享初始化
+        ShareSDK.initSDK(this);
         //初始化字体
         initTypeface();
         //内存检测初始化

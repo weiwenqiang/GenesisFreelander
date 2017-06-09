@@ -98,4 +98,38 @@
         <item name="android:background">@drawable/lyt_blue_white_selecter</item>
     </style>
 
+    <style name="me_item_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingLeft">@dimen/me_fragment_item_lr</item>
+        <item name="android:paddingBottom">@dimen/me_fragment_item_tb</item>
+        <item name="android:paddingTop">@dimen/me_fragment_item_tb</item>
+        <item name="android:paddingRight">@dimen/me_fragment_item_lr</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:clickable">true</item>
+        <item name="android:background">@drawable/lyt_blue_white_selecter</item>
+    </style>
+
+    <style name="me_text_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="wrap_text_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="roomRatingBar" parent="@android:style/Widget.Holo.RatingBar.Small">
+        <item name="android:progressDrawable">@drawable/room_rating_bar</item>
+        <item name="android:minHeight">24dp</item>
+        <item name="android:maxHeight">24dp</item>
+    </style>
+
 </resources>

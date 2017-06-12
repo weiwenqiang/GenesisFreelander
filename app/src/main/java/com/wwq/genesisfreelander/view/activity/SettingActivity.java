@@ -1,5 +1,6 @@
 package com.wwq.genesisfreelander.view.activity;
 
+import android.content.Intent;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.RatingBar;
@@ -10,6 +11,8 @@ import com.wwq.genesisfreelander.controller.pref.GlobalContants;
 import com.wwq.genesisfreelander.mvp.contract.activity.SettingContract;
 import com.wwq.genesisfreelander.mvp.presenter.activity.SettingPresenter;
 import com.wwq.genesisfreelander.view.base.BaseActivity;
+import com.wwq.genesisfreelander.view.fragment.function.LocationActivity;
+import com.wwq.genesisfreelander.view.fragment.function.RideRouteCalculateActivity;
 import com.wwq.genesisfreelander.view.widget.custom.SelectableRoundedImageView;
 
 import butterknife.BindView;
@@ -66,10 +69,12 @@ public class SettingActivity extends BaseActivity<SettingPresenter> implements S
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.lyt_day_earnings:
-                GlobalContants.startVesselActivity(SettingActivity.this, "SetDealDetailsFragment");
+//                GlobalContants.startVesselActivity(SettingActivity.this, "SetDealDetailsFragment");
+                startActivity(new Intent(SettingActivity.this, RideRouteCalculateActivity.class));
                 break;
             case R.id.lyt_month_earnings:
-                GlobalContants.startVesselActivity(SettingActivity.this, "SetDealDetailsFragment");
+                startActivity(new Intent(SettingActivity.this, LocationActivity.class));
+//                GlobalContants.startVesselActivity(SettingActivity.this, "SetDealDetailsFragment");
                 break;
             case R.id.lty_set_wallet:
                 GlobalContants.startVesselActivity(SettingActivity.this, "SetWalletFragment");

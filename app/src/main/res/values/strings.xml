@@ -1,7 +1,32 @@
 <resources>
     <string name="app_name">闪递人</string>
     <string name="text_about_us">跑跑科技隶属于山西跑跑商务服务有限公司，是一家创新型科技企业，成立于2016年1月，总部位于山西吕梁。公司定位于高科技软件开发服务提供商和移动互联网业务运营商，致力于互联网（移动互联网+传统互联网）应用的开发、创意、运营、平台一体化服务，公司以高科技为起点、以技术为核心、以强大的技术队伍为支撑，致力于为政府、企业、个人和互联网运营商提供各类应用解决方案，软件开发。公司主要服务范围包括互联网基础应用服务、互联网运营和推广服务、企业移动信息化服务、软件系统开发服务等内容。旗下运营的跑跑系列产品，利用移动互联网和大数据技术，创新城市生活服务模式，整合全领域市场资源，搭建起便捷的城市生活信息服务平台，满足和提升市民多元化生活需求服务。</string>
-
+    <!-- 分享 -->
     <string name="app_share_text">ShareSDK--文本</string>
     <string name="app_share_comment">分享</string>
+    <!-- 地图 -->
+    <string name="notifyTitle">提示</string>
+    <string name="notifyMsg">当前应用缺少必要权限。\n\n请点击\"设置\"-\"权限\"-打开所需权限。</string>
+    <string name="setting">设置</string>
+    <string name="cancel">取消</string>
+    <string name="startLocation">开始定位</string>
+    <string name="stopLocation">停止定位</string>
+
+    <string name="defaultInteval">2000</string>
+    <string name="defaultHttpTimeout">30000</string>
+
+    <string name="battery_saving">低功耗模式</string>
+    <string name="device_sensors">仅设备模式</string>
+    <string name="hight_accuracy">高精度模式</string>
+    <string name="interval">定位周期(ms)</string>
+    <string name="httpTimeout">网络超时(ms)</string>
+    <string name="location_once">单次定位</string>
+    <string name="needAddress">逆地理编码</string>
+    <string name="cacheAble">开启缓存</string>
+    <string name="onceLastest">提高首次定位精度</string>
+    <string name="gpsFirst">GPS优先</string>
+    <string name="useSensor">使用传感器</string>
+    <string name="wifiScan">开启wifi扫描</string>
+
+    <string name="title_location">获取定位数据</string>
 </resources>

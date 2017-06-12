@@ -9,6 +9,8 @@ import android.graphics.Typeface;
 import android.os.Handler;
 import android.support.multidex.MultiDex;
 
+import com.amap.api.location.AMapLocationClient;
+import com.amap.api.navi.AMapNavi;
 import com.dou361.dialogui.DialogUIUtils;
 import com.squareup.leakcanary.LeakCanary;
 import com.wwq.genesisfreelander.R;
@@ -71,6 +73,10 @@ public class BaseApplication extends Application {
         LeakCanary.install(this);
         //对话框初始化
         DialogUIUtils.init(this);
+        //高德地图初始化-定位
+        AMapLocationClient.setApiKey("89434fab1283263e9bf71d67e437321b");
+        //高德地图初始化-导航
+        AMapNavi.setApiKey(this, "89434fab1283263e9bf71d67e437321b");
     }
 
     public void addActivity(Activity activity) {
@@ -127,7 +133,7 @@ public class BaseApplication extends Application {
         return handler;
     }
 
-    private void initTypeface(){
+    private void initTypeface() {
         microsoftAccor = new TypefaceCollection.Builder()
                 .set(Typeface.NORMAL, Typeface.createFromAsset(getAssets(), "fonts/microsoft_accor.ttf"))
                 .create();
